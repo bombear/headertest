@@ -1,45 +1,10 @@
-/*$(window).scroll(function(){
-    var top = 200px;
-    var x = document.getElementById("main-navigation");
-
-    if(x.scrollTop() >top)
-    {   
-        $('#main-navigation').css({"position":"fixed","bottom":"auto"});
-    }else{
-        $('#main-navigation').css({"position":"absolute","bottom":"0"});
-    }
-});
-
-var fixed = false;
-$(document).scroll(function() {
-    if( $(this).scrollTop() >= 100 ) {
-        if( !fixed ) {
-            fixed = true;
-            $('#logo-scroll').css({position:'fixed', display:'visible !important'});
-        }
-    } else {
-        if( fixed ) {
-            fixed = false;
-            $('#logo-scroll').css({display:'none'});
-        }
-    }
-});
-*/
-
-function scroll() {
-    var elmnt = document.getElementById("box"),
-        x = elmnt.scrollLeft,
-        y = elmnt.scrollTop;
-    document.getElementById("demo").innerHTML = "Vertically: " + y + "px";
-}
-
-
 function navPos() {
     var elmnt = document.getElementById("page"),
         headerHeight = document.getElementById('full-header').offsetHeight,
         navHeight = document.getElementById('main-navigation').offsetHeight,
         x = elmnt.scrollTop,
-        navPosition = x - headerHeight + navHeight;
+        navPosition = x - headerHeight + navHeight;       
+        
     if(navPosition > 0)
         {
             document.getElementById("demo").innerHTML = "- Menu position vertically:</br>" + navPosition + " px";
@@ -53,18 +18,46 @@ function navPos() {
             document.getElementById('main-navigation').style.position = 'absolute';
             document.getElementById('main-navigation').style.bottom = '0';
         }
-}
-
-document.getElementById("main-menu").onmouseover = function() {hover()};
+};
 
 function hover() {
+    var element =  document.getElementById('debug');
     var text = document.createTextNode("Hover");
     var paragr = document.createElement("p");
     paragr.appendChild(text);
-    debug.appendChild(paragr);
+    element.appendChild(paragr);
 };
 
+function debug() {
+    var element =  document.getElementById('debug_title');
+//if (typeof(element) === "undefined")
+    {
+    var debugMenu = document.getElementById("debug")
+    var debugTitle = document.createElement("p");
+    debugTitle.setAttribute("id","debug_title");  
+    debugTitle.innerHTML = 'Debug';
+    debugMenu.appendChild(debugTitle);
+    }
+}
+
+function clearDebug() {
+    
+    var myNode = document.getElementById("debug");
+while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+}
+}
 /*
+function loadingCount() {
+     cucc = document.createElement("p"),
+        percent=document.getElementById("loadingBar").offsetWidth,
+        text="Loading: "+percent+"%",
+        .appendChild(text),
+        debug.appendChild(paragr)
+    
+}
+
+
 $(document).ready(function(){
 $(document).scroll(function () {
      var elmnt = document.getElementById("page"),
@@ -87,4 +80,9 @@ $(document).scroll(function () {
 else{
     document.getElementById("#test").style.display="none";
 }
+Creating element into debug
+par = document.createElement("p");
+            fixedMenu = document.createTextNode("Menu fixed!!");
+            par.appendChild(fixedMenu);
+            debug.appendChild(par);  
 */
