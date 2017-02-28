@@ -9,7 +9,7 @@ function navPos() {
         {
             document.getElementById("menuPos").innerHTML = "- Menu position vertically:</br>" + navPosition + " px";
             document.getElementById("fixedTest").style.display = "inline";
-            document.getElementById("test").innerHTML = "- Menu fixed!";
+            document.getElementById("fixedTest").innerHTML = "- Menu fixed!";
             document.getElementById('main-navigation').style.position = 'fixed';
             document.getElementById('main-navigation').style.bottom = 'auto';
         }else{
